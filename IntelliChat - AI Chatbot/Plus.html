@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form - Dark Theme</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background: #1a1a1a;
+            padding: 20px;
+            color: #e0e0e0;
+        }
+
+        .container2 {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            background: #2a2a2a;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .logo-container {
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            height: 24px;
+            filter: invert(1);
+        }
+
+        .subscription-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .per-month {
+            color: #b0b0b0;
+            margin-bottom: 40px;
+        }
+
+        .price-breakdown {
+            border-top: 1px solid #4a4a4a;
+            padding-top: 20px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .price-label {
+            color: #b0b0b0;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-label {
+            display: block;
+            margin-bottom: 8px;
+            color: #b0b0b0;
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #4a4a4a;
+            border-radius: 6px;
+            font-size: 16px;
+            background-color: #3a3a3a;
+            color: #e0e0e0;
+        }
+
+        .text-input::placeholder {
+            color: #808080;
+        }
+
+        .card-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .card-icons {
+            display: flex;
+            gap: 8px;
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .card-input-wrapper {
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .card-icon {
+            width: 32px;
+            height: 20px;
+            object-fit: contain;
+            filter: grayscale(1) brightness(1.5);
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .checkbox-label {
+            font-size: 14px;
+            color: #b0b0b0;
+        }
+
+        select.text-input {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e0e0e0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+            padding-right: 40px;
+        }
+
+        .manual-address {
+            color: #4a9eff;
+            text-decoration: underline;
+            font-size: 14px;
+            margin-top: 8px;
+            cursor: pointer;
+        }
+
+        .pay-button {
+            width: 100%;
+            padding: 16px;
+            background-color: #10a37f;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 20px;
+        }
+
+        .pay-button:hover {
+            background-color: #0e906f;
+        }
+        .back{
+            background-color: 383838;
+            border-radius: 50%;
+            height: 20px;
+            width: 20px;
+            padding: 20px;
+            color: #fefefe;
+            margin-left: 20px;
+            margin-top: 12px;
+            font-weight: 300;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .back:hover{
+            background-color: #444;
+        }
+        .back .backicon{
+            color: #fefefe;
+        }
+        /* Responsive Styles */
+    @media (max-width: 768px) {
+        .container2 {
+            grid-template-columns: 1fr;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .subscription-title {
+            font-size: 20px;
+        }
+
+        .price {
+            font-size: 36px;
+        }
+
+        .card-row {
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .pay-button {
+            font-size: 14px;
+            padding: 12px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container2 {
+            padding: 10px;
+        }
+
+        .subscription-title {
+            font-size: 18px;
+        }
+
+        .price {
+            font-size: 28px;
+        }
+
+        .per-month {
+            font-size: 14px;
+        }
+
+        .section-title {
+            font-size: 18px;
+        }
+
+        .text-input {
+            font-size: 14px;
+            padding: 10px;
+        }
+
+        .pay-button {
+            font-size: 14px;
+            padding: 10px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="back" onclick="window.location.href='Intellichat.html'"><i class="fa-solid fa-arrow-left backicon"></i></div>
+    <div class="container2">
+        <div class="left-section">
+            <div class="logo-container">
+                <h2>INTELLICHAT</h2>
+            </div>
+            <h1 class="subscription-title">Subscribe to INTELLICHAT Plus Subscription</h1>
+            <div class="price">$20.00</div>
+            <div class="per-month">per month</div>
+            
+            <div class="price-breakdown">
+                <div class="price-row">
+                    <span>INTELLICHAT Plus Subscription</span>
+                    <span>$20.00</span>
+                </div>
+                <div class="price-row">
+                    <span class="price-label">Billed monthly</span>
+                </div>
+                <div class="price-row">
+                    <span>Subtotal</span>
+                    <span>$20.00</span>
+                </div>
+                <div class="price-row">
+                    <span>Tax</span>
+                    <span>Enter address to calculate</span>
+                </div>
+                <div class="price-row">
+                    <strong>Total due today</strong>
+                    <strong>$20.00</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <div class="form-section">
+                <h2 class="section-title">Contact information</h2>
+                <div class="input-group">
+                    <label class="input-label" for="email">Email</label>
+                    <input type="email" id="email" class="text-input" placeholder="Enter your email">
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2 class="section-title">Payment method</h2>
+                <div class="input-group">
+                    <label class="input-label" for="card-number">Card information</label>
+                    <div class="card-input-wrapper">
+                        <input type="text" id="card-number" class="text-input" placeholder="1234 1234 1234 1234">
+                    </div>
+                    <div class="card-row">
+                        <input type="text" class="text-input" placeholder="MM / YY">
+                        <input type="text" class="text-input" placeholder="CVC">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label" for="cardholder-name">Cardholder name</label>
+                    <input type="text" id="cardholder-name" class="text-input" placeholder="Full name on card">
+                </div>
+
+                <div class="input-group">
+                    <label class="input-label" for="country">Billing address</label>
+                    <select id="country" class="text-input">
+                        <option value="">Select country</option>
+                        <option value="IN">India</option>
+                        <option value="US">United States</option>
+                        <option value="GB">United Kingdom</option>
+                    </select>
+                    <input type="text" class="text-input" placeholder="Address" style="margin-top: 10px;">
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="save-info">
+                    <label for="save-info" class="checkbox-label">
+                        Securely save my information for 1-click checkout<br>
+                        Pay faster on OpenAI, LLC and everywhere Link is accepted.
+                    </label>
+                </div>
+
+                <div class="checkbox-group">
+                    <input type="checkbox" id="business">
+                    <label for="business" class="checkbox-label">
+                        I'm purchasing as a business
+                    </label>
+                </div>
+
+                <button class="pay-button">Pay $20.00</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
